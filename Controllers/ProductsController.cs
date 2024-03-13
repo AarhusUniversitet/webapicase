@@ -17,7 +17,7 @@ namespace MyApp.Namespace
 
         [HttpGet]
         [Route("")]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<Product>> Get()
         {
             using (var command = _connection.CreateCommand())
             {
@@ -43,7 +43,7 @@ namespace MyApp.Namespace
 
         [HttpGet]
         [Route("{id}")]
-        public ActionResult<IEnumerable<string>> Get(string id)
+        public ActionResult<IEnumerable<Product>> Get(string id)
         {
             using (var command = _connection.CreateCommand())
             {
