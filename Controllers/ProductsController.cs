@@ -21,6 +21,7 @@ namespace MyApp.Namespace
         [Route("")]
         public ActionResult<IEnumerable<Product>> Get()
         {
+            Thread.Sleep(3000);
             using (var command = _connection.CreateCommand())
             {
                 command.CommandText = "SELECT * FROM Products";
