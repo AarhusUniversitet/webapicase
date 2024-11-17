@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.Sqlite;
@@ -16,6 +17,7 @@ namespace MyApp.Namespace
         }
 
         [HttpGet]
+        [EnableCors("ReactCase")]
         [Route("")]
         public ActionResult<IEnumerable<Product>> Get()
         {
@@ -42,6 +44,7 @@ namespace MyApp.Namespace
         }
 
         [HttpGet]
+        [EnableCors("ReactCase")]
         [Route("{id}")]
         public ActionResult<IEnumerable<Product>> Get(string id)
         {
