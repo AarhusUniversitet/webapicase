@@ -22,7 +22,9 @@ builder.Services.AddControllers();
 
 builder.Services.AddTransient<SqliteConnection>((serviceProvider) =>
         {
-            var connectionStringBuilder = new SqliteConnectionStringBuilder { DataSource = "app.db" };
+            string basePath = AppContext.BaseDirectory;
+            string dbPath = Path.Combine(basePath, "app.db");
+            var connectionStringBuilder = new SqliteConnectionStringBuilder { DataSource = dbPath };
             var connection = new SqliteConnection(connectionStringBuilder.ConnectionString);
             connection.Open();
 
